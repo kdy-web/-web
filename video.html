@@ -466,8 +466,8 @@
 
 
 function requestFullScreen() {
-   var de = document.getElementById("media");
-   
+   var de = document.getElementsByClassName("video_box")[0];
+     de.style.transform="rotate(90deg)"
       if (de.requestFullscreen) {
         de.requestFullscreen();
     } else if (de.mozRequestFullScreen) {
@@ -479,7 +479,8 @@ function requestFullScreen() {
 
 
 function exitFullscreen() {
-     var de = document;
+     var de =document.getElementsByClassName("video_box")[0];
+       de.style.transform="rotate(0deg)"
      if (de.exitFullscreen) {        
      	de.exitFullscreen();
      } else if (de.mozCancelFullScreen) {
