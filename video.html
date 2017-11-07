@@ -60,6 +60,7 @@
 				height: 4.6rem;
 				margin-bottom: 0.3rem;
 				position: relative;
+				background: white;
 				
 			}
 			
@@ -238,24 +239,25 @@
 				background: rgba(35, 36, 39, 0.75);
 				position: absolute;
 				bottom: 0;
-				z-index: 3;
+			
 			}
 			
 			.img_box {
 				width: 0.34rem;
 				height: 0.4rem;
 				margin-top: 0.24rem;
-				margin-left: 0.30rem;
+				margin-left:4.7%;
 			}
 			
 			.progress_box {
 				float: left;
-				width: 3.4rem;
+				width: 45.33%;
 				position: absolute;
-				left: 0.92rem;
+				left: 12.3%;
 				top: 0.42rem;
 				height: 0.04rem;
 				background: #8E8E8E;
+			
 			}
 			
 			.progress_bar {
@@ -268,11 +270,11 @@
 			}
 			
 			.currentTime {
-				width: 1.77rem;
+				width: 23.6%;
 				height: 0.4rem;
 				position: absolute;
 				top: 0.24rem;
-				left: 4.8rem;
+				left: 64.1%;
 				font-family: PingFangSC-Regular;
 				font-size: 0.28rem;
 				color: #FFFFFF;
@@ -284,7 +286,7 @@
 				height: 0.4rem;
 				position: absolute;
 				top: 0.24rem;
-				left: 6.82rem;
+				left: 90.9%;
 			}
 			
 			.video_img img {
@@ -307,7 +309,7 @@
 		</style>
 	</head>
 
-	<body ng-app="starter" ng-controller="MyController">
+	<body ng-app="starter" ng-controller="MyController" style="width:7.5rem;height:13.34rem;">
 
 		<div class="video_box">
 			<div class="video_full_box">
@@ -338,7 +340,7 @@
 				</div>
 			</div>
 		</div>
-		<ion-content style="margin-top: 4.9rem;">
+		<ion-content style="margin-top: 4.9rem;background: white;">
 			<div class="content_title">
 				<div class="title_ver"></div>
 				<span>讲师介绍</span>
@@ -378,15 +380,11 @@
 		var app = angular.module('starter', ["ionic"]);
 		app.controller('MyController', function($scope, $ionicPopup) {
 			
-			
-			
-			
-			
-			
-			
+
 			var nx, ny, dx, x, y, timer_hide, timer;
 			$scope.n = 5;
 			var hide_flag = false;
+			var toggle_flag=true;
 			$scope.myPopup = function() {
 				$('.stop_box').show()
 				document.getElementById("media").pause()
@@ -420,12 +418,12 @@
 				});
 				$scope.video_dom = document.getElementById("media");
 				$scope.video_dom.play();
-				
+					clearInterval(timer)
+				clearInterval(timer_hide)
 				if($scope.video_dom.readyState==4){
 					$scope.maxW = Number($(".progress_box").width())
 				$scope.total = $scope.video_dom.duration;
-				clearInterval(timer)
-				clearInterval(timer_hide)
+			
 				progress_run()
 				$("#total_time_min").html(parseInt($scope.total / 60 % 60 / 10) + "" + parseInt($scope.total / 60 % 60 % 10));
 				$("#total_time_sec").html(parseInt($scope.total % 60 / 10) + "" + parseInt($scope.total % 60 % 10));
@@ -451,14 +449,28 @@
 			}, false)
              
              document.getElementsByClassName("video_img")[0].addEventListener('click',function(){
-             	
-             var de = document.getElementById("media");
+             	if(toggle_flag){
+             		clearInterval(timer)
+				clearInterval(timer_hide)
+             		  requestFullScreen();
+             		document.getElementById("media").play();
+             		  progress_run();
+             		  toggle_flag=false;
+             		  
+             		  
+             		  
+             		  
+             	}else{
+             		
+             		exitFullscreen();
+             		toggle_flag=true;
+             		
+             	}
+            
    
-    requestFullScreen();
-    //5秒钟自动退出全屏
-    setTimeout(function(){
-        
-    },5000);
+  
+    
+  
 },false);
 
 
@@ -467,15 +479,14 @@
 
 
 function requestFullScreen() {
-   var de = document.getElementsByClassName("video_box")[0];
-     de.style.transform="rotate(90deg)";
-      if (de.requestFullscreen) {
-        de.requestFullscreen();
-    } else if (de.mozRequestFullScreen) {
-        de.mozRequestFullScreen();
-    } else if (de.webkitRequestFullScreen) {
-        de.webkitRequestFullScreen();
-    }
+   var clone_dom=$('.video_box').clone();
+   $('.video_box').remove();
+   $("body").append(clone_dom);
+   var width=$(".backdrop").width();
+   var height=$('.backdrop').height()
+   $('#media').css({"height":width,"width":height})
+    $('.video_box').css({"transform":"rotate(90deg)","height":width,"width":height,"position":"absolution","left":"-2.93rem",'top':"2.93rem","z-index":"9"});
+    
  }
 
 
@@ -573,6 +584,7 @@ function exitFullscreen() {
 
 			}
 			$(".img_box img").click(function(e) {
+				console.log(1)
 				$scope.n = 5;
 				window.event ? window.event.cancelBubble = true : e.stopPropagation();
 				clearInterval(timer)
