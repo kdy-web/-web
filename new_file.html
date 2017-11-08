@@ -1,51 +1,38 @@
-<!Doctype html>  
-<html>  
-    <head>  
-        <meta charset="utf-8">  
-        <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0;">  
-        <title>横竖屏切换检测</title>  
-        <style type="text/css">  
-            body[orient=landscape]{  
-                background-color: #ff0000;  
-            }  
-  
-            body[orient=portrait]{  
-                background-color: #00ffff;  
-            }  
-        </style>  
-    </head>  
-    <body >  
-        <div>  
-            内容  
-        </div>  
-        </body>
-        <script src="js/zepto.min.js" type="text/javascript">
-        	
-        </script>
-        <script type="text/javascript">  
-     function orient() {
-        //alert('gete');
-        if (window.orientation == 0 || window.orientation == 180) {
-            $("body").attr("class", "portrait");
-            orientation = 'portrait';
-            return false;
-        }
-        else if (window.orientation == 90 || window.orientation == -90) {
-            $("body").attr("class", "landscape");
-            orientation = 'landscape';
-   
-            return false;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>全屏切换</title>
+    <script type="text/javascript">
+    //进入全屏
+    function enterFullScreen() {
+        var de = document.documentElement;
+        if (de.requestFullscreen) {
+            de.requestFullscreen();
+        } else if (de.mozRequestFullScreen) {
+            de.mozRequestFullScreen();
+        } else if (de.webkitRequestFullScreen) {
+            de.webkitRequestFullScreen();
         }
     }
-   
-   
-    $(function(){
-        orient();
-    });
-   
-   
-    $(window).bind( 'orientationchange', function(e){
-        orient();
-    });
-   </script>
-</html>  
+    //退出全屏
+    function exitFullScreen() {
+        var de = document;
+        if (de.exitFullscreen) {
+            de.exitFullscreen();
+        } else if (de.mozCancelFullScreen) {
+            de.mozCancelFullScreen();
+        } else if (de.webkitCancelFullScreen) {
+            de.webkitCancelFullScreen();
+        }
+    }
+    </script>
+</head>
+<body>
+    <div>
+        <a href="javascript:;" onclick="enterFullScreen()">进入全屏</a>
+        &nbsp;
+        <a href="javascript:;" onclick="exitFullScreen()">退出全屏</a>
+    </div>
+</body>
+</html>
