@@ -374,7 +374,7 @@
 					]
 				});
 			}
-		$scope.video_dom.addEventListener("loadstart", function(){
+		$scope.video_dom.addEventListener("loadedmetadata", function(){
 			$('.btn_circle').click(function(event) {
 				hide_flag = true;
 				window.event ? window.event.cancelBubble = true : event.stopPropagation();
