@@ -403,7 +403,7 @@
 				x: 0,
 				y: 0
 			}
-			document.getElementsByClassName("video_full_box")[0].addEventListener("touchend", function(e) {
+			document.getElementsByClassName("video_full_box")[0].addEventListener("click", function(e) {
 				console.log(e)
 				$scope.n = 25;
 				console.log(1)
@@ -413,7 +413,7 @@
 				progress_run()
 			}, false)
 
-			document.getElementsByClassName("video_img")[0].addEventListener('touchend', function() {
+			document.getElementsByClassName("video_img")[0].addEventListener('click', function() {
 				if(toggle_flag) {
 
 					requestFullScreen();
