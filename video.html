@@ -346,7 +346,7 @@
 	<script type="text/javascript">
 		var app = angular.module('starter', ["ionic"]);
 		app.controller('MyController', function($scope, $ionicPopup) {
-
+	$scope.video_dom = document.getElementById("media");
 			var nx, ny, dx, x, y, timer_hide, timer;
 			$scope.n = 25;
 			var hide_flag = false;
@@ -374,7 +374,7 @@
 					]
 				});
 			}
-				if($scope.video_dom.readyState == 4) {
+		$scope.video_dom.addEventListener("loadstart", function(){
 			$('.btn_circle').click(function(event) {
 				hide_flag = true;
 				window.event ? window.event.cancelBubble = true : event.stopPropagation();
@@ -383,7 +383,7 @@
 				$(".video_controls").animate({
 					"height": "0.88rem"
 				});
-				$scope.video_dom = document.getElementById("media");
+			
 				$scope.video_dom.play();
 				clearInterval(timer)
 				clearInterval(timer_hide)
@@ -398,7 +398,7 @@
 				
 
 			})
-			}
+			})
 			var div2 = document.getElementById("progress_btn");
 			var play_flag = false;
 			var run_flag = false;
