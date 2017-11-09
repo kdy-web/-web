@@ -348,7 +348,7 @@
 		app.controller('MyController', function($scope, $ionicPopup) {
 	$scope.video_dom = document.getElementById("media");
 			var nx, ny, dx, x, y, timer_hide, timer;
-			$scope.n = 25;
+			$scope.n = 50;
 			var hide_flag = false;
 			var toggle_flag = true;
 			$scope.myPopup = function() {
@@ -408,7 +408,7 @@
 			}
 			document.getElementsByClassName("video_full_box")[0].addEventListener("click", function(e) {
 				console.log(e)
-				$scope.n = 25;
+				$scope.n = 50;
 				console.log(1)
 				hide_flag = true;
 				clearInterval(timer)
@@ -458,7 +458,7 @@
 				clearInterval(timer)
 				clearInterval(timer_hide)
 				play_flag = true;
-				$scope.n = 25;
+				$scope.n = 50;
 				var touch;
 				if(event.touches) {
 					touch = event.touches[0];
@@ -526,12 +526,12 @@
 					console.log($scope.n)
 					$scope.n--
 
-				}, 200)
+				}, 100)
 
 			}
 			$(".img_box img").click(function(e) {
 				console.log(1)
-				$scope.n = 25;
+				$scope.n = 50;
 				window.event ? window.event.cancelBubble = true : e.stopPropagation();
 				clearInterval(timer)
 				clearInterval(timer_hide)
@@ -549,7 +549,7 @@
 			function move() {
 				clearInterval(timer)
 				clearInterval(timer_hide);
-				$scope.n = 25;
+				$scope.n = 50;
 				if(play_flag) {
 					var touch;
 					if(event.touches) {
