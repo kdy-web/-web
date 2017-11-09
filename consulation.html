@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<!--强制让文档的宽度与设备的宽度保持1:1，并且文档最大的宽度比例是1.0，且不允许用户点击屏幕放大浏览-->
+		<meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no" />
+		<!--WebApp全屏模式   隐藏地址栏-->
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<!--苹果强制全屏显示-->
+		<meta name="apple-touch-fullscreen" content="yes" />
+		<!--强制全屏显示-->
+		<meta name="full-screen" content="yes" />
+		<!--制定iphone中safari顶端的状态条的样式（default:白色，black:黑色，black-translucent：半透明）-->
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<!--告诉设备忽略将页面中的数字识别为电话号码 -->
+		<meta name="format-detection" content="telephone=no" />
+		<!--告诉设备忽略将页面中的地址识别 -->
+		<meta name="format-detection" content="address=no" />
+		<title></title>
+		<link href="lib/ionic/css/ionic.css" rel="stylesheet">
+		<script src="lib/ionic/js/ionic.bundle.js"></script>
+		<script type="text/javascript">
+			//换算函数  10px=1rem
+			function refresh() {
+				var deviceWidth = document.documentElement.clientWidth;
+				if(deviceWidth > 750) {
+					document.documentElement.style.fontSize = 750 / 7.5 + "px";
+				} else {
+					document.documentElement.style.fontSize = deviceWidth / 7.5 + "px";
+				}
+			}
+			refresh();
+			window.onresize = function() {
+				refresh();
+			}
+		</script>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			@font-face {
+				font-family: PingFangSC-Regular;
+				src: url('css/PingFang SC Regular.ttf'), url('css/PingFang SC Regular.ttf')
+			}
+			
+			@font-face {
+				font-family: PingFangSC-Medium;
+				src: url('css/PingFang Medium_downcc.otf'), url('css/PingFang Medium_downcc.otf')
+			}
+			
+			.item {
+				height: 2.12rem;
+				padding: 0;
+				padding-left: 0.3rem;
+				box-sizing: border-box;
+				border: none;
+			}
+			
+			.item .item_box div img {
+				width: 100%;
+				height: 100%;
+				float: left;
+				border-radius:0.05rem ;
+			}
+			
+			.item .item_box {
+				height: 100%;
+				padding-top: 0.3rem;
+				box-sizing: border-box;
+				border-bottom: 0.03rem solid #F0F0F0;
+			}
+			
+			.item .item_box div {
+				float: left;
+			}
+			
+		
+			
+			
+			
+		</style>
+		
+	</head>
+
+	<body ng-app="newapp" ng-controller="mynewCtrl">
+
+
+		<ion-content >
+			<a class="item" href="video.html">
+				<div class="item_box">
+					<div style="width: 2.6rem;height: 1.52rem;margin-right:0.24rem ;">
+						<img src="mcfly.jpg" />
+					</div>
+					<div>
+						<h2 style="font-family: PingFangSC-Medium;font-size: 0.34rem;color: #232427;letter-spacing: 0;line-height:0.8rem;font-weight: bold;">常见错别字</h2>
+						<p style="font-family: PingFangSC-Regular;font-size: 0.24rem;color: #8E8E8E;letter-spacing: 0;line-height: 0.27rem;">2017-10-31</p>
+					
+					</div>
+				</div>
+
+			</a>
+			<a class="item " href="video.html">
+				<div class="item_box">
+					<div style="width: 2.6rem;height: 1.52rem;margin-right:0.24rem ;">
+						<img src="mcfly.jpg">
+					</div>
+					<div>
+						<h2 style="font-family: PingFangSC-Medium;font-size: 0.34rem;color: #232427;letter-spacing: 0;line-height:0.8rem;font-weight: bold;">常见错别字</h2>
+						<p style="font-family: PingFangSC-Regular;font-size: 0.24rem;color: #8E8E8E;letter-spacing: 0;line-height: 0.27rem;">2017-10-31</p>
+						
+					</div>
+				</div>
+			</a>
+		</ion-content>
+		
+	</body>
+	<script type="text/javascript">
+		var app=angular.module("newapp",["ionic"]);
+		app.controller("mynewCtrl",function($scope){
+			
+		})
+	</script>
+</html>
