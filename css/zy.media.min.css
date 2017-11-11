@@ -200,7 +200,7 @@ body {
 .zy_timeline {
     margin-left:10px ;
 	margin-right: 10px;
-	-webkit-box-flex: 1;
+	-webkit-box-flex: 1 1 auto;
 	-webkit-flex: 1 1 auto;
 	flex: 1 1 auto
 }
