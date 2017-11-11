@@ -394,7 +394,7 @@
 				}
 				$scope.url = $scope.video_data.url
 				console.log($scope.video_data)
-				var video_str='<video id="media" ><source src="'+$scope.url+'" type="video/mp4"> 您的浏览器不支持HTML5视频</video>'
+				var video_str='<video id="media"  playsinline webkit-playsinline="true"><source src="'+$scope.url+'" type="video/mp4"> 您的浏览器不支持HTML5视频</video>'
 				$('.zy_media').append(video_str)
 				
 				document.body.style.overflow = 'hidden';
