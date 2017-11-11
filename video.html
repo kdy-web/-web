@@ -394,12 +394,12 @@
 				}
 				$scope.url = $scope.video_data.url
 				console.log($scope.video_data)
-				var video_str='<video id="media" x5-video-player-type="h5"  webkit-playsinline="true"><source src="'+$scope.url+'" type="video/mp4"> 您的浏览器不支持HTML5视频</video>'
+				var video_str='<video id="media" x5-video-player-type="h5"  playsinline webkit-playsinline="true"><source src="'+$scope.url+'" type="video/mp4"> 您的浏览器不支持HTML5视频</video>'
 				$('.zy_media').append(video_str)
 				
 				document.body.style.overflow = 'hidden';
 				zymedia('video', {
-					autoplay: true
+					
 				});
 
 			})
