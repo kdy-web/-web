@@ -22,6 +22,7 @@
 		<title></title>
 		<link href="lib/ionic/css/ionic.css" rel="stylesheet">
 		<script src="lib/ionic/js/ionic.bundle.js"></script>
+		<script src="js/zepto.min.js"></script>
 		<script type="text/javascript">
 			//换算函数  10px=1rem
 			function refresh() {
@@ -44,268 +45,274 @@
 				padding: 0;
 			}
 			
-			@font-face {
-				font-family: PingFangSC-Regular;
-				src: url('css/PingFang SC Regular.ttf'), url('css/PingFang SC Regular.ttf')
+			.video_box {
+				width: 100%;
+				height: 4.6rem;
+				margin-bottom: 0.3rem;
+				position: relative;
+				background: white;
+				overflow: hidden;
 			}
 			
-			@font-face {
-				font-family: PingFangSC-Medium;
-				src: url('css/PingFang Medium_downcc.otf'), url('css/PingFang Medium_downcc.otf')
+			.buy_box {
+				width: 100%;
+				background: #2B94FA;
 			}
 			
-			@media all and (orientation: portrait) {
-				.video_box {
-					width: 100%;
-					height: 4.6rem;
-					margin-bottom: 0.3rem;
-					position: relative;
-					background: white;
-					overflow: hidden;
-				}
-				.buy_box {
-					width: 100%;
-					background: #2B94FA;
-				}
-				.title {
-					font-family: PingFangSC-Semibold;
-					font-size: 0.34rem;
-					color: #FFFFFF;
-					letter-spacing: 0;
-				}
-				.content_title {
-					width: 100%;
-					height: 0.44rem;
-				}
-				.title_ver {
-					float: left;
-					width: 0.1rem;
-					height: 0.44rem;
-					background: #2B94FA;
-					margin-left: 0.3rem;
-				}
-				.content_title span {
-					font-family: PingFangSC-Regular;
-					font-size: 0.34rem;
-					color: #2B94FA;
-					line-height: 0.34rem;
-					position: relative;
-					top: 0.05rem;
-					margin-left: 0.24rem;
-				}
-				.title_content {
-					width: 100%;
-					height: 1.4rem;
-					margin-top: 0.3rem;
-				}
-				.title_content_img {
-					float: left;
-					width: 1.4rem;
-					height: 1.4rem;
-					border-radius: 50%;
-					background: #D8D8D8;
-					border: 1px solid #979797;
-					margin-left: 0.3rem;
-				}
-				.title_content_content {
-					float: left;
-					margin-left: 0.4rem;
-					height: 100%;
-				}
-				.title_content li {
-					width: 100%;
-					list-style: none;
-				}
-				.content {
-					margin-top: 0.3rem;
-					font-family: PingFangSC-Regular;
-					font-size: 0.28rem;
-					color: #8E8E8E;
-					padding: 0 0.3rem;
-					box-sizing: border-box;
-					margin-bottom: 0.3rem;
-				}
-				.myPopup {
-					width: 2.15rem;
-					height: 0.675rem;
-					text-align: center;
-					line-height: 0.675rem;
-				}
-				.confirm_color {
-					font-family: PingFangSC-Regular;
-					font-size: 0.28rem;
-					color: #2B94FA;
-					letter-spacing: 0;
-				}
-				.btn_title {
-					width: 4.34rem;
-					height: 1.36rem;
-					text-align: center;
-					line-height: 1.36rem;
-					border-bottom: 1px solid #F0F0F0;
-					font-family: PingFangSC-Regular;
-					font-size: 0.28re, ;
-					color: #232427;
-					letter-spacing: 0;
-				}
-				.team-popup .popup-head {
-					display: none;
-				}
-				.team-popup .popup {
-					padding: 0;
-					width: 4.34rem;
-					-moz-border-radius: 5px;
-					-webkit-border-radius: 5px;
-					border-radius: 5px;
-				}
-				.team-popup .popup-body {
-					padding: 0;
-					height: 1.36rem;
-					/*overflow-y:scroll;*/
-				}
-				.team-popup .popup-buttons {
-					padding: 0;
-					min-height: 0.675rem;
-				}
-				.team-popup .popup-buttons button {
-					min-height: 0.675rem;
-					border-radius: 5px;
-					padding: 0;
-					margin: 0;
-				}
-				.team-popup .popup-buttons button:first-child {
-					border-right: 1px solid #F0F0F0;
-				}
-				.cancel_color {
-					font-family: PingFangSC-Regular;
-					font-size: 0.28rem;
-					color: #8E8E8E;
-					letter-spacing: 0;
-				}
-				.stop_box {
-					width: 100%;
-					height: 4.6rem;
-					background: rgba(0, 0, 0, 0.30);
-					position: absolute;
-					top: 0;
-					left: 0;
-				}
-				.btn_circle {
-					width: 2rem;
-					height: 2rem;
-					position: absolute;
-					border-radius: 50%;
-					top: 0;
-					left: 0;
-					right: 0;
-					bottom: 0;
-					margin: auto;
-					background: rgba(255, 255, 255, 0.30);
-				}
-				.btn_circle img {
-					width: 0.74rem;
-					position: absolute;
-					height: 0.89rem;
-					top: 0.56rem;
-					left: 0.72rem;
-				}
-				.video_controls {
-					width: 100%;
-					height: 0;
-					background: rgba(35, 36, 39, 0.75);
-					position: absolute;
-					bottom: 0;
-				}
-				.img_box {
-					width: 0.34rem;
-					height: 0.4rem;
-					margin-top: 0.24rem;
-					margin-left: 4.7%;
-				}
-				.progress_box {
-					float: left;
-					width: 45.33%;
-					position: absolute;
-					left: 12.3%;
-					top: 0.42rem;
-					height: 0.04rem;
-					background: #8E8E8E;
-				}
-				.progress_bar {
-					width: 0.14rem;
-					height: 100%;
-					background: #2B94FA;
-					position: absolute;
-					top: 0;
-					left: -0.14rem;
-				}
-				.currentTime {
-					width: 23.6%;
-					height: 0.4rem;
-					position: absolute;
-					top: 0.24rem;
-					left: 64.1%;
-					font-family: PingFangSC-Regular;
-					font-size: 0.28rem;
-					color: #FFFFFF;
-					letter-spacing: 0;
-				}
-				.video_img {
-					width: 0.4rem;
-					height: 0.4rem;
-					position: absolute;
-					top: 0.24rem;
-					left: 90.9%;
-				}
-				.video_img img {
-					width: 100%;
-					height: auto;
-				}
-				.video_full_box {
-					width: 100%;
-					height: 100%;
-					position: absolute;
-					top: 0;
-					left: 0;
-				}
-				#media {
-					object-fit: cover;
-					object-position: center center;
-				}
+			.title {
+				font-size: 0.34rem;
+				color: #FFFFFF;
+				letter-spacing: 0;
+			}
+			
+			.content_title {
+				width: 100%;
+				height: 0.44rem;
+			}
+			
+			.title_ver {
+				float: left;
+				width: 0.1rem;
+				height: 0.44rem;
+				background: #2B94FA;
+				margin-left: 0.3rem;
+			}
+			
+			.content_title span {
+				font-size: 0.34rem;
+				color: #2B94FA;
+				line-height: 0.34rem;
+				position: relative;
+				top: 0.05rem;
+				margin-left: 0.24rem;
+			}
+			
+			.title_content {
+				width: 100%;
+				height: 1.4rem;
+				margin-top: 0.3rem;
+			}
+			
+			.title_content_img {
+				float: left;
+				width: 1.4rem;
+				height: 1.4rem;
+				border-radius: 50%;
+				background: #D8D8D8;
+				border: 1px solid #979797;
+				margin-left: 0.3rem;
+			}
+			
+			.title_content_content {
+				float: left;
+				margin-left: 0.4rem;
+				height: 100%;
+			}
+			
+			.title_content li {
+				width: 100%;
+				list-style: none;
+			}
+			
+			.content {
+				margin-top: 0.3rem;
+				font-size: 0.28rem;
+				color: #8E8E8E;
+				padding: 0 0.3rem;
+				box-sizing: border-box;
+				margin-bottom: 0.3rem;
+			}
+			
+			.myPopup {
+				width: 2.15rem;
+				height: 0.675rem;
+				text-align: center;
+				line-height: 0.675rem;
+			}
+			
+			.confirm_color {
+				font-size: 0.28rem;
+				color: #2B94FA;
+				letter-spacing: 0;
+			}
+			
+			.btn_title {
+				width: 4.34rem;
+				height: 1.36rem;
+				text-align: center;
+				line-height: 1.36rem;
+				border-bottom: 1px solid #F0F0F0;
+				font-size: 0.28re, ;
+				color: #232427;
+				letter-spacing: 0;
+			}
+			
+			.team-popup .popup-head {
+				display: none;
+			}
+			
+			.team-popup .popup {
+				padding: 0;
+				width: 4.34rem;
+				-moz-border-radius: 5px;
+				-webkit-border-radius: 5px;
+				border-radius: 5px;
+			}
+			
+			.team-popup .popup-body {
+				padding: 0;
+				height: 1.36rem;
+				/*overflow-y:scroll;*/
+			}
+			
+			.team-popup .popup-buttons {
+				padding: 0;
+				min-height: 0.675rem;
+			}
+			
+			.team-popup .popup-buttons button {
+				min-height: 0.675rem;
+				border-radius: 5px;
+				padding: 0;
+				margin: 0;
+			}
+			
+			.team-popup .popup-buttons button:first-child {
+				border-right: 1px solid #F0F0F0;
+			}
+			
+			.cancel_color {
+				font-size: 0.28rem;
+				color: #8E8E8E;
+				letter-spacing: 0;
+			}
+			
+			.stop_box {
+				width: 100%;
+				height: 4.6rem;
+				background: rgba(0, 0, 0, 0.30);
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			
+			.btn_circle {
+				width: 2rem;
+				height: 2rem;
+				position: absolute;
+				border-radius: 50%;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+				background: rgba(255, 255, 255, 0.30);
+			}
+			
+			.btn_circle img {
+				width: 0.74rem;
+				position: absolute;
+				height: 0.89rem;
+				top: 0.56rem;
+				left: 0.72rem;
+			}
+			
+			.video_controls {
+				width: 100%;
+				height: 0;
+				background: rgba(35, 36, 39, 0.75);
+				position: absolute;
+				bottom: 0;
+			}
+			
+			.img_box {
+				width: 0.34rem;
+				height: 0.4rem;
+				margin-top: 0.24rem;
+				margin-left: 4.7%;
+			}
+			
+			.progress_box {
+				float: left;
+				width: 45.33%;
+				position: absolute;
+				left: 12.3%;
+				top: 0.42rem;
+				height: 0.04rem;
+				background: #8E8E8E;
+			}
+			
+			.progress_bar {
+				width: 0.14rem;
+				height: 100%;
+				background: #2B94FA;
+				position: absolute;
+				top: 0;
+				left: -0.14rem;
+			}
+			
+			.currentTime {
+				width: 23.6%;
+				height: 0.4rem;
+				position: absolute;
+				top: 0.24rem;
+				left: 64.1%;
+				font-size: 0.28rem;
+				color: #FFFFFF;
+				letter-spacing: 0;
+			}
+			
+			.video_img {
+				width: 0.4rem;
+				height: 0.4rem;
+				position: absolute;
+				top: 0.24rem;
+				left: 90.9%;
+			}
+			
+			.video_img img {
+				width: 100%;
+				height: auto;
+			}
+			
+			.video_full_box {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			
+			#modelView {
+				background-color: #DDDDDD;
+				z-index: 0;
+				opacity: 0.7;
+				height: 100%;
+				width: 100%;
+				position: relative;
+			}
+			
+			.playvideo {
+				padding-top: auto;
+				z-index: 9999;
+				position: relative;
+			}
+			
+			.zy_media {
+				z-index: 999999999
 			}
 		</style>
 	</head>
+	<link rel="stylesheet" type="text/css" href="css/zy.media.min.css" />
 
-	<body ng-app="starter" ng-controller="MyController" style="width:7.5rem;height:13.34rem;">
+	<body ng-app="starter" ng-controller="MyController" onmousewheel="return false;">
 
-		<div class="video_box">
-			<div class="video_full_box">
-				<video  x5-video-orientation="landscape" preload="meta" src="img/mov_aaa.mp4" id="media" style="width: 100%;height: 100%;object-fit:fill" webkit-playsinline='true' playsinline='true' x-webkit-airplay='true' x5-video-player-type='h5' x5-video-player-fullscreen='true' x5-video-ignore-metadata='true'>
-
-				</video>
-			</div>
-
-			<div class="stop_box">
-				<div class="btn_circle">
-					<img src="img/Triangle.png" />
-				</div>
+		<div class="playvideo">
+			<div class="zy_media">
+				
 
 			</div>
-			<div class="video_controls">
-				<div class="img_box">
-					<img src="" style="width: 100%;height: auto;" />
-				</div>
-				<div class="progress_box">
-					<div class="progress_bar"></div>
-					<img src="img/Group 11.png" id="progress_btn" style="width: 0.28rem;height: 0.28rem;position: absolute;left: 0;bottom: -0.12rem;" />
-				</div>
-				<div class="currentTime">
-					<span id="current_time_min">00</span><span>:</span><span id="current_time_sec">00</span><span>/</span><span id="total_time_min">00</span><span>:</span><span id="total_time_sec">00</span>
-				</div>
-				<div class="video_img">
-					<img src="img/Group 3.png" />
-				</div>
-			</div>
+
 		</div>
 		<ion-content style="margin-top: 4.9rem;background: white;">
 			<div class="content_title">
@@ -317,8 +324,8 @@
 
 				</div>
 				<div class="title_content_content">
-					<li style="font-family: PingFangSC-Regular;font-size: 0.4rem;color: #232427;margin-bottom: 0.24rem;margin-top: 0.1rem;">一行</li>
-					<li style="font-family: PingFangSC-Regular;font-size: 0.28rem;color: #8E8E8E;">特级语文教师</li>
+					<li style="font-size: 0.4rem;color: #232427;margin-bottom: 0.24rem;margin-top: 0.1rem;">{{video_data.teacher}}</li>
+					<li style="font-size: 0.28rem;color: #8E8E8E;">特级语文教师</li>
 				</div>
 
 			</div>
@@ -327,10 +334,10 @@
 			</div>
 			<div class="content_title">
 				<div class="title_ver"></div>
-				<span>讲师介绍</span>
+				<span>课程介绍</span>
 			</div>
 			<div class="content">
-				如果我是悲伤的，你怎会遇见我，如果你是快乐的，又怎会有如果，爱情若是完美的，又怎会有曲折，城市若是喧闹的，你怎会想起我，懒洋洋的午后。
+			{{video_data.brief}}
 			</div>
 
 		</ion-content>
@@ -341,16 +348,15 @@
 		</div>
 
 	</body>
-	<script src="js/zepto.min.js"></script>
 
+	<script src="js/zy.media.min.js" type="text/javascript">
+	</script>
 	<script type="text/javascript">
 		var app = angular.module('starter', ["ionic"]);
-		app.controller('MyController', function($scope, $ionicPopup) {
-	$scope.video_dom = document.getElementById("media");
-			var nx, ny, dx, x, y, timer_hide, timer;
-			$scope.n = 50;
-			var hide_flag = false;
-			var toggle_flag = true;
+		app.controller('MyController', function($scope, $ionicPopup, $http) {
+
+			$scope.hash = window.location.search.substr(1);
+			console.log($scope.hash)
 			$scope.myPopup = function() {
 				$('.stop_box').show()
 				document.getElementById("media").pause();
@@ -374,236 +380,29 @@
 					]
 				});
 			}
-             $scope.video_dom.addEventListener('canplaythrough',function(){
-			$('.btn_circle').click(function(event) {
-				hide_flag = true;
-				window.event ? window.event.cancelBubble = true : event.stopPropagation();
-				run_flag = true;
-				$('.stop_box').hide();
-					
-				$(".video_controls").animate({
-					"height": "0.88rem"
+			$http({
+				method: "GET",
+				url: "https://www.xueguoguo.cn/wxapi/Course?",
+				data: {
+
+				}
+			}).success(function(data) {
+				for(var i = 0; i < data.list.length; i++) {
+					if(data.list[i].id == $scope.hash) {
+						$scope.video_data = data.list[i]
+					}
+				}
+				$scope.url = $scope.video_data.url
+				console.log($scope.video_data)
+				var video_str='<video id="media" x5-video-player-type="h5" playsinline webkit-playsinline="true"><source src="'+$scope.url+'" type="video/mp4"> 您的浏览器不支持HTML5视频</video>'
+				$('.zy_media').append(video_str)
+				
+				document.body.style.overflow = 'hidden';
+				zymedia('video', {
+					autoplay: true
 				});
-				$scope.video_dom.play();
-		
-				
-				clearInterval(timer)
-				clearInterval(timer_hide)
-			
-					
-					$scope.maxW = Number($(".progress_box").width())
-					$scope.total = $scope.video_dom.duration;
-
-					progress_run()
-					$("#total_time_min").html(parseInt($scope.total / 60 % 60 / 10) + "" + parseInt($scope.total / 60 % 60 % 10));
-					$("#total_time_sec").html(parseInt($scope.total % 60 / 10) + "" + parseInt($scope.total % 60 % 10));
-				
 
 			})
-			})
-			var div2 = document.getElementById("progress_btn");
-			var play_flag = false;
-			var run_flag = false;
-			var cur = {
-				x: 0,
-				y: 0
-			}
-			document.getElementsByClassName("video_full_box")[0].addEventListener("click", function(e) {
-				console.log(e)
-				$scope.n = 50;
-				console.log(1)
-				hide_flag = true;
-				clearInterval(timer)
-				clearInterval(timer_hide)
-				progress_run()
-			}, false)
-
-			document.getElementsByClassName("video_img")[0].addEventListener('click', function() {
-				if(toggle_flag) {
-
-					requestFullScreen();
-
-					toggle_flag = false;
-
-				} else {
-					console.log(99)
-					exitFullscreen();
-					toggle_flag = true;
-
-				}
-
-			}, false);
-
-			function requestFullScreen() {
-				var de = document.getElementsByClassName("video_box")[0];
-				if(de.requestFullscreen) {
-					de.requestFullscreen();
-				} else if(de.mozRequestFullScreen) {
-					de.mozRequestFullScreen();
-				} else if(de.webkitRequestFullScreen) {
-					de.webkitRequestFullScreen();
-				}
-			}
-
-			function exitFullscreen() {
-				var de = document;
-				if(de.exitFullscreen) {
-					de.exitFullscreen();
-				} else if(de.mozCancelFullScreen) {
-					de.mozCancelFullScreen();
-				} else if(de.webkitCancelFullScreen) {
-					de.webkitCancelFullScreen();
-				}
-			}
-
-			function down() {
-				clearInterval(timer)
-				clearInterval(timer_hide)
-				play_flag = true;
-				$scope.n = 50;
-				var touch;
-				if(event.touches) {
-					touch = event.touches[0];
-				} else {
-					touch = event;
-				}
-				cur.x = touch.clientX;
-				cur.y = touch.clientY;
-				dx = div2.offsetLeft;
-				dy = div2.offsetTop;
-
-			}
-
-			function progress_run() {
-
-				timer = setInterval(function() {
-
-					if($scope.video_dom.ended) {
-
-						clearInterval(timer);
-						$(".img_box img").attr("src", "img/Triangle.png");
-						run_flag = false;
-					} else if($scope.video_dom.paused) {
-
-						$(".img_box img").attr("src", "img/Triangle.png");
-						$scope.time = $scope.video_dom.currentTime;
-
-						$("#current_time_min").html(parseInt($scope.time / 60 % 60 / 10) + "" + parseInt($scope.time / 60 % 60 % 10))
-						$("#current_time_sec").html(parseInt($scope.time % 60 / 10) + "" + parseInt($scope.time % 60 % 10))
-						$scope.bar_len = $scope.time / $scope.total * $scope.maxW / 100 * 2;
-
-						$(".progress_bar").width($scope.bar_len + 0.14 + "rem")
-						div2.style.left = $scope.bar_len + "rem";
-
-					} else {
-
-						$(".img_box img").attr("src", "img/Group 10.png")
-
-						$scope.time = $scope.video_dom.currentTime;
-
-						$("#current_time_min").html(parseInt($scope.time / 60 % 60 / 10) + "" + parseInt($scope.time / 60 % 60 % 10))
-						$("#current_time_sec").html(parseInt($scope.time % 60 / 10) + "" + parseInt($scope.time % 60 % 10))
-						$scope.bar_len = $scope.time / $scope.total * $scope.maxW / 100 * 2;
-
-						$(".progress_bar").width($scope.bar_len + 0.14 + "rem")
-						div2.style.left = $scope.bar_len + "rem";
-					}
-				})
-
-				timer_hide = setInterval(function() {
-					if($scope.n == 0) {
-
-						hide_flag = false;
-						$(".video_controls").animate({
-							"height": "0rem"
-						});
-						clearInterval(timer_hide)
-
-					} else {
-
-						$(".video_controls").animate({
-							"height": "0.88rem"
-						});
-					}
-					console.log($scope.n)
-					$scope.n--
-
-				}, 100)
-
-			}
-			$(".img_box img").click(function(e) {
-				console.log(1)
-				$scope.n = 50;
-				window.event ? window.event.cancelBubble = true : e.stopPropagation();
-				clearInterval(timer)
-				clearInterval(timer_hide)
-				if(run_flag) {
-					$scope.video_dom.pause();
-					progress_run()
-					run_flag = false;
-				} else {
-					$scope.video_dom.play();
-					progress_run()
-					run_flag = true;
-				}
-			})
-
-			function move() {
-				clearInterval(timer)
-				clearInterval(timer_hide);
-				$scope.n = 50;
-				if(play_flag) {
-					var touch;
-					if(event.touches) {
-						touch = event.touches[0];
-					} else {
-						touch = event;
-					}
-					nx = touch.clientX - cur.x;
-
-					x = dx + nx
-					x = (x > $scope.maxW ? $scope.maxW : (dx + nx) && x < 0 ? 0 : (dx + nx))
-					$scope.video_dom.currentTime = x / $scope.maxW * $scope.total;
-
-					y = dy;
-
-					progress_run()
-					div2.style.top = y + "px";
-					//阻止页面的滑动默认事件
-					document.addEventListener("touchmove", function() {
-						event.preventDefault();
-					}, false);
-				}
-			}
-			//鼠标释放时候的函数
-			function end() {
-				play_flag = false;
-
-			}
-
-			div2.addEventListener("mousedown", function() {
-				down();
-			}, false);
-			div2.addEventListener("touchstart", function(e) {
-
-				down();
-			}, false)
-			div2.addEventListener("mousemove", function() {
-				move();
-			}, false);
-			div2.addEventListener("touchmove", function() {
-				move();
-			}, false)
-			div2.addEventListener("mouseup", function() {
-				clearInterval(timer)
-				clearInterval(timer_hide)
-				progress_run()
-				end();
-
-			}, false);
-			div2.addEventListener("touchend", function() {
-				end();
-			}, false);
 
 		})
 	</script>

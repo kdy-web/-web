@@ -41,15 +41,7 @@
 				padding: 0;
 			}
 			
-			@font-face {
-				font-family: PingFangSC-Regular;
-				src: url('css/PingFang SC Regular.ttf'), url('css/PingFang SC Regular.ttf')
-			}
 			
-			@font-face {
-				font-family: PingFangSC-Medium;
-				src: url('css/PingFang Medium_downcc.otf'), url('css/PingFang Medium_downcc.otf')
-			}
 			
 			.item {
 				height: 2.12rem;
@@ -89,27 +81,27 @@
 
 
 		<ion-content >
-			<a class="item" href="video.html">
+			<a class="item" >
 				<div class="item_box">
 					<div style="width: 2.6rem;height: 1.52rem;margin-right:0.24rem ;">
 						<img src="mcfly.jpg" />
 					</div>
 					<div>
-						<h2 style="font-family: PingFangSC-Medium;font-size: 0.34rem;color: #232427;letter-spacing: 0;line-height:0.8rem;font-weight: bold;">常见错别字</h2>
-						<p style="font-family: PingFangSC-Regular;font-size: 0.24rem;color: #8E8E8E;letter-spacing: 0;line-height: 0.27rem;">2017-10-31</p>
+						<h2 style="font-size: 0.34rem;color: #232427;letter-spacing: 0;line-height:0.8rem;font-weight: bold;">常见错别字</h2>
+						<p style="font-size: 0.24rem;color: #8E8E8E;letter-spacing: 0;line-height: 0.27rem;">2017-10-31</p>
 					
 					</div>
 				</div>
 
 			</a>
-			<a class="item " href="video.html">
+			<a class="item " >
 				<div class="item_box">
 					<div style="width: 2.6rem;height: 1.52rem;margin-right:0.24rem ;">
 						<img src="mcfly.jpg">
 					</div>
 					<div>
-						<h2 style="font-family: PingFangSC-Medium;font-size: 0.34rem;color: #232427;letter-spacing: 0;line-height:0.8rem;font-weight: bold;">常见错别字</h2>
-						<p style="font-family: PingFangSC-Regular;font-size: 0.24rem;color: #8E8E8E;letter-spacing: 0;line-height: 0.27rem;">2017-10-31</p>
+						<h2 style="font-size: 0.34rem;color: #232427;letter-spacing: 0;line-height:0.8rem;font-weight: bold;">常见错别字</h2>
+						<p style="font-size: 0.24rem;color: #8E8E8E;letter-spacing: 0;line-height: 0.27rem;">2017-10-31</p>
 						
 					</div>
 				</div>
@@ -119,7 +111,17 @@
 	</body>
 	<script type="text/javascript">
 		var app=angular.module("newapp",["ionic"]);
-		app.controller("mynewCtrl",function($scope){
+		app.controller("mynewCtrl",function($scope,$http){
+				 $http({
+           	method:"GET",
+           	url:"https://www.xueguoguo.cn/wxapi/Article?",
+           	data:{
+           		
+           	}
+           }).success(function(result){
+           	console.log(result)
+           })
+			
 			
 		})
 	</script>
