@@ -10,7 +10,8 @@
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<!--苹果强制全屏显示-->
 		<meta name="apple-touch-fullscreen" content="yes" />
-
+		<meta http-equiv="pragma" content="no-cache" />
+		<meta http-equiv="expires" content="0">
 		<!--强制全屏显示-->
 		<meta name="full-screen" content="yes" />
 		<!--制定iphone中safari顶端的状态条的样式（default:白色，black:黑色，black-translucent：半透明）-->
@@ -309,7 +310,6 @@
 
 		<div class="playvideo">
 			<div class="zy_media">
-				
 
 			</div>
 
@@ -337,7 +337,7 @@
 				<span>课程介绍</span>
 			</div>
 			<div class="content">
-			{{video_data.brief}}
+				{{video_data.brief}}
 			</div>
 
 		</ion-content>
@@ -394,12 +394,12 @@
 				}
 				$scope.url = $scope.video_data.url
 				console.log($scope.video_data)
-				var video_str='<video id="media" x5-video-player-type="h5"  playsinline webkit-playsinline="true"><source src="'+$scope.url+'" type="video/mp4"> 您的浏览器不支持HTML5视频</video>'
+				var video_str = '<video id="media" x5-video-player-type="h5"  playsinline webkit-playsinline="true"><source src="' + $scope.url + '" type="video/mp4"> 您的浏览器不支持HTML5视频</video>'
 				$('.zy_media').append(video_str)
-				
+
 				document.body.style.overflow = 'hidden';
 				zymedia('video', {
-					
+
 				});
 
 			})
