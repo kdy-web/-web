@@ -1,7 +1,7 @@
 body {
 	margin: 0
 }
-#media::-webkit-media-controls-enclosure {
+#media:-webkit-media-controls-enclosure {
     /*禁用播放器控制栏的样式*/
     display: none !important;
 }
@@ -161,7 +161,7 @@ body {
 	display: box;
 	display: -webkit-flex;
 	display: flex;
-	z-index: 2147483648;
+	z-index: 2147483650;
 }
 
 .zy_playpause_btn {
@@ -200,6 +200,8 @@ body {
 .zy_timeline {
     margin-left:10px ;
 	margin-right: 10px;
+	-ms-flex: 1 1 auto;
+	 -moz-box-flex: 1 1 auto;    
 	-webkit-box-flex: 1 1 auto;
 	-webkit-flex: 1 1 auto;
 	flex: 1 1 auto
